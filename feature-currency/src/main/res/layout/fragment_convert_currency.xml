@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/convert_root_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:navigationIcon="@drawable/baseline_close_24"
+                app:title="Convert currency">
+
+            </com.google.android.material.appbar.MaterialToolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_last_updated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appbar"
+            tools:text="Last updated at 2020-05-02, 14:15" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_source_currency"
+            style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_x_large"
+            android:layout_marginTop="@dimen/margin_x_large"
+            android:layout_marginEnd="@dimen/margin_x_large"
+            android:padding="0dp"
+            app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+            app:endIconMode="custom"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_last_updated">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_source_currency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="@string/select_currency"
+                android:inputType="none"
+                android:singleLine="true">
+
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_dest_currency"
+            style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_x_large"
+            android:padding="0dp"
+            app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+            app:endIconMode="custom"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="@id/layout_source_currency"
+            app:layout_constraintStart_toStartOf="@id/layout_source_currency"
+            app:layout_constraintTop_toBottomOf="@id/layout_source_currency">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_dest_currency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="@string/destination_currency"
+                android:inputType="none"
+                android:singleLine="true">
+
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/img_switch_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/layout_source_value"
+            app:srcCompat="@drawable/baseline_compare_arrows_24" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_source_value"
+            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_x_large"
+            app:hintEnabled="true"
+            app:layout_constraintEnd_toStartOf="@+id/img_switch_currency"
+            app:layout_constraintStart_toStartOf="@id/layout_source_currency"
+            app:layout_constraintTop_toBottomOf="@id/layout_dest_currency">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_source_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/amount"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_destination_value"
+            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:hintEnabled="true"
+            app:layout_constraintEnd_toEndOf="@id/layout_dest_currency"
+            app:layout_constraintStart_toEndOf="@id/img_switch_currency"
+            app:layout_constraintTop_toTopOf="@id/layout_source_value">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_destination_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="0123456789"
+                android:hint="@string/amount"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xx_large"
+            android:enabled="false"
+            android:paddingTop="@dimen/padding_large"
+            android:paddingBottom="@dimen/padding_large"
+            android:text="@string/currency_details"
+            app:layout_constraintEnd_toEndOf="@id/layout_dest_currency"
+            app:layout_constraintStart_toStartOf="@id/layout_source_currency"
+            app:layout_constraintTop_toBottomOf="@id/layout_source_value" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

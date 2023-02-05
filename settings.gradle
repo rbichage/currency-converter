@@ -1,0 +1,34 @@
+
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url 'https://jitpack.io'
+        }
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        maven {
+            url 'https://jitpack.io'
+        }
+        mavenCentral()
+    }
+}
+rootProject.name = "Currency Converter"
+include ':app'
+enableFeaturePreview("VERSION_CATALOGS")
+
+include ':network'
+include ':core-network'
+include ':core-data'
+include ':core-model'
+include ':feature-currency'
+include ':core-common'
+include ':core-designsystem'
+include ':core-navigation'
+include ':core-testing'

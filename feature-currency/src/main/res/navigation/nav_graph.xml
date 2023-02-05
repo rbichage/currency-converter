@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/convertCurrencyFragment">
+
+    <dialog
+        android:id="@+id/currenciesFragment"
+        android:name="com.reuben.feature_currency.ui.all_currencies.CurrenciesFragment"
+        android:label="fragment_currencies"
+        tools:layout="@layout/fragment_currencies">
+        <argument
+            android:name="currencies"
+            app:argType="com.reuben.core_model.currency.CurrenciesList" />
+        <argument
+            android:name="currencyType"
+            app:argType="com.reuben.core_common.CurrencyType" />
+    </dialog>
+    <fragment
+        android:id="@+id/convertCurrencyFragment"
+        android:name="com.reuben.feature_currency.ui.convert.ConvertCurrencyFragment"
+        android:label="fragment_convert_currency"
+        tools:layout="@layout/fragment_convert_currency">
+        <action
+            android:id="@+id/toCurrencies"
+            app:destination="@id/currenciesFragment" />
+        <action
+            android:id="@+id/toCurrencyDetails"
+            app:destination="@id/currencyDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/currencyDetailsFragment"
+        android:name="com.reuben.feature_currency.CurrencyDetailsFragment"
+        android:label="fragment_currency_details"
+        tools:layout="@layout/fragment_currency_details" >
+        <argument
+            android:name="baseCurrencyCode"
+            app:argType="string" />
+        <argument
+            android:name="destCurrencyCode"
+            app:argType="string" />
+        <argument
+            android:name="timeseries"
+            app:argType="com.reuben.core_model.api.TimeSeries[]" />
+        <argument
+            android:name="exchangeRates"
+            app:argType="com.reuben.core_model.currency.ExchangeRate[]" />
+    </fragment>
+</navigation>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/bottom_sheet_shape"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/padding_large"
+    >
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/currencies_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:text="@string/available_currencies"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/margin_large"
+        app:layout_constraintTop_toBottomOf="@id/currencies_header" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_search_currency"
+        style="@style/Widget.Material3.TextInputEditText.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_xx_large"
+        android:layout_marginTop="@dimen/margin_xx_large"
+        android:layout_marginEnd="@dimen/margin_xx_large"
+        android:padding="0dp"
+        app:hintEnabled="false"
+        app:boxCornerRadiusBottomEnd="@dimen/radius_x_medium"
+        app:boxCornerRadiusBottomStart="@dimen/radius_x_medium"
+        app:boxCornerRadiusTopEnd="@dimen/radius_x_medium"
+        app:boxCornerRadiusTopStart="@dimen/radius_x_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_search_currency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/tap_to_search" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_currencies"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_xx_large"
+        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginEnd="@dimen/margin_xx_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/currency_item"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="5"
+        app:layout_constraintTop_toBottomOf="@id/layout_search_currency" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
