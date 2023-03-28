@@ -64,7 +64,4 @@ Develop an application that:
 
 https://user-images.githubusercontent.com/17246592/216999134-862a3da4-bff5-4d24-b2d6-41e9b752ea8f.mp4
 
-# Screenshot of Tests running
-
-# Happy Coding!
 
